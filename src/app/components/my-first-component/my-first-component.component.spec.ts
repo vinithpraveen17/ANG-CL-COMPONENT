@@ -26,4 +26,15 @@ describe('MyFirstComponentComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should contain h2 and img', () => {
+    fixture.detectChanges();
+    const template = fixture.nativeElement;
+    const h2 = template.querySelector('h2');
+    const img = template.querySelector('img');
+
+    expect(h2.textContent).toEqual('This is the my-first-component component!');
+    expect(img.getAttribute('src')).toEqual('https://opensource.google/static/images/projects/os-projects-angular.svg');
+  
+  })
 });

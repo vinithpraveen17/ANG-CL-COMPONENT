@@ -1,5 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { MyFirstComponentComponent } from './components/my-first-component/my-first-component.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -22,10 +23,12 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('components');
   });
 
-  it('should render title', () => {
+  it('should render component', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('components app is running!');
-  });
+    const template = fixture.nativeElement;
+    const myFirstComponent = template.querySelector('app-my-first-component');
+    expect(myFirstComponent).toBeTruthy();
+ 
+  })
 });
